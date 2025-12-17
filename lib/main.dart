@@ -62,7 +62,7 @@ class MyApp extends StatelessWidget {
                     'EV station'
                   )
                 ],
-              )
+              ),
 
               // Image.network('https://www.gruppolife.com/en/blog/youmeme-everything-you-didnt-want-to-know-about-memes',
               //height: 12),
