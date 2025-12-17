@@ -55,6 +55,20 @@ class MyApp extends StatelessWidget {
             Text(
               'kmutnb'
               ), 
+              Row(
+                children: [
+                  Icon(Icons.ev_station),
+                  Text(
+                    'EV station'
+                  )
+                ],
+              )
+
+              // Image.network('https://www.gruppolife.com/en/blog/youmeme-everything-you-didnt-want-to-know-about-memes',
+              //height: 12),
+              
+              Image.asset('assets/images/meme.png'),
+
               ElevatedButton(
               onPressed: () {
                 debugPrint("btn pressed");
