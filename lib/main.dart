@@ -12,75 +12,66 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(
-              seedColor: const Color.fromARGB(255, 186, 253, 172)),
-          useMaterial3: true,
-          appBarTheme: const AppBarTheme(
-              color: Color.fromARGB(255, 183, 248, 153))), // Theme Data
-
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(255, 70, 82, 252)),
+        //colorScheme: Color.amber),
+        useMaterial3: true,
+        appBarTheme:
+            const AppBarTheme(color: Color.fromARGB(255, 212, 222, 255)),
+      ),
       home: Scaffold(
-          appBar: AppBar(
-            title: const Text('MyApp'),
-            actions: [
-              IconButton(
-                icon : const Icon(Icons.shopping_cart),
-                onPressed:() {
-                  debugPrint('icon2 pressed');
-                }, ),
-
+        appBar: AppBar(
+          title: Text('MyApp'),
+          actions: [
             IconButton(
-                icon : const Icon(Icons.home),
-                onPressed:() {
-                  debugPrint('icon3 pressed');
-                }, ),
-
-                IconButton(
-                icon : const Icon(Icons.info),
-                onPressed:() {
-                  debugPrint('icon4 pressed');
-                }, ),
-
-                           
-            ],
-            leading: IconButton(
-              icon: const Icon(Icons.menu),
+              icon: const Icon(Icons.shopping_cart),
               onPressed: () {
-                debugPrint('leading');
+                debugPrint('icon2 pressed');
               },
             ),
-          ), // AppBar
-          body: Center(
-            child: Column( children: [Text('hello cs mb' ,style: TextStyle(fontSize: 24 ),
-            ), 
-            Text(
-              'kmutnb'
-              ), 
-              Row(
-                children: [
-                  Icon(Icons.ev_station),
-                  Text(
-                    'EV station'
-                  )
-                ],
-              ),
-
-              // Image.network('https://www.gruppolife.com/en/blog/youmeme-everything-you-didnt-want-to-know-about-memes',
-              //height: 12),
+            IconButton(
+                icon: const Icon(Icons.info),
+                onPressed: () {
+                  debugPrint('icon3 pressed');
+                })
+          ],
+          leading: IconButton(
+            icon: const Icon(Icons.menu),
+            onPressed: () {
+              debugPrint('leading icon pressed');
+            },
+          ),
+        ),
+        body: Center(
+            child: Column(
+          children: [
+            Text('Hello CS MB Test'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               
-              Image.asset('assets/images/meme.png'),
+            ),
+            
+            Image.network(
+                'https://www.innnews.co.th/wp-content/uploads/2023/04/28cp-memekid3-superJumbo-1.jpg',
+                height: 180),
 
-              ElevatedButton(
+            Image.asset(
+              'assets/images/meme.png',
+              width: 120,
+            ),
+
+            ElevatedButton(
               onPressed: () {
                 debugPrint("btn pressed");
-              }, 
-              child: Text("ok button",
+              },
+              child: Text(
+                'OK button',
                 style: TextStyle(fontSize: 24),
-              )
-            )
-          ],),
-           
-        )
-      ), // Scaffold
-    ); // MaterialApp
+              ),
+            ),
+          ],
+        )),
+      ),
+    );
   }
 }
