@@ -13,64 +13,118 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 70, 82, 252)),
-        //colorScheme: Color.amber),
+            seedColor: const Color.fromARGB(255, 23, 7, 255)),
         useMaterial3: true,
-        appBarTheme:
-            const AppBarTheme(color: Color.fromARGB(255, 212, 222, 255)),
+        appBarTheme: const AppBarTheme(
+          color: Color.fromARGB(255, 79, 111, 255),
+        ),
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('MyApp'),
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.shopping_cart),
-              onPressed: () {
-                debugPrint('icon2 pressed');
-              },
-            ),
-            IconButton(
-                icon: const Icon(Icons.info),
-                onPressed: () {
-                  debugPrint('icon3 pressed');
-                })
-          ],
+          title: const Text('My App'),
           leading: IconButton(
             icon: const Icon(Icons.menu),
-            onPressed: () {
-              debugPrint('leading icon pressed');
-            },
+            onPressed: () => debugPrint('menu pressed'),
           ),
-        ),
-        body: Center(
-            child: Column(
-          children: [
-            Text('Hello CS MB Test'),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.shopping_cart_outlined),
+              onPressed: () => debugPrint('cart pressed'),
             ),
-            
-            Image.network(
-                'https://www.innnews.co.th/wp-content/uploads/2023/04/28cp-memekid3-superJumbo-1.jpg',
-                height: 180),
-
-            Image.asset(
-              'assets/images/meme.png',
-              width: 120,
-            ),
-
-            ElevatedButton(
-              onPressed: () {
-                debugPrint("btn pressed");
-              },
-              child: Text(
-                'OK button',
-                style: TextStyle(fontSize: 24),
-              ),
+            IconButton(
+              icon: const Icon(Icons.info_outline),
+              onPressed: () => debugPrint('info pressed'),
             ),
           ],
-        )),
+        ),
+        body: SingleChildScrollView(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+             
+              Card(
+                color: Colors.grey[200],
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column( 
+                    children: [
+                     
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Image.network(
+                            'https://cdn-icons-png.flaticon.com/512/10485/10485137.png',
+                            height: 80,
+                            width: 80,
+                            fit: BoxFit.cover,
+                          ),
+                          const SizedBox(width: 15),
+                          const Expanded(
+                            child: Text(
+                              'โครงการคนละครึ่งพลัส สนับสนุนโดยภาครัฐ มาตรการกระตุ้นเศรษฐกิจ 50-50%',
+                              style: TextStyle(fontSize: 14),
+                              
+                            ),
+                            
+                          ),
+                        ],
+                      ),
+                      
+                      const Row(
+                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                         
+                          Text(
+                            'ยอดใช้สิทธิแล้ววันนี้',
+                            style: TextStyle(fontSize: 14, color: Colors.black),
+                          ),
+                          Text(
+                            '50 บาท',
+                            style: TextStyle(fontSize: 14, color: Colors.black,fontWeight: FontWeight.bold),
+                          ),
+                        ],
+
+                      ),
+                     
+                    ],
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 20),
+
+              
+              Card(
+                color: Colors.grey[200],
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column( 
+                    children: [
+                      
+                      const Row(
+                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                         
+                          Text(
+                            'ยอดใช้สิทธิแล้ววันนี้',
+                            style: TextStyle(fontSize: 14, color: Colors.black),
+                          ),
+                          Text(
+                            '50 บาท',
+                            style: TextStyle(fontSize: 14, color: Colors.black,fontWeight: FontWeight.bold),
+                          ),
+                        ],
+
+                      ),
+                     
+                    ],
+                  ),
+                ),
+              ),
+              
+            ],
+          ),
+        ),
       ),
     );
   }
