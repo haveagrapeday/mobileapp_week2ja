@@ -54,8 +54,8 @@ class MyApp extends StatelessWidget {
                         children: [
                           Image.network(
                             'https://cdn-icons-png.flaticon.com/512/10485/10485137.png',
-                            height: 80,
-                            width: 80,
+                            height: 50,
+                            width: 50,
                             fit: BoxFit.cover,
                           ),
                           const SizedBox(width: 15),
@@ -68,16 +68,21 @@ class MyApp extends StatelessWidget {
                             
                           ),
                         ],
+                        
                       ),
                       
                       const Row(
                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                         
+                         Row(children: [
+                          Icon(Icons.wallet),
                           Text(
                             'ยอดใช้สิทธิแล้ววันนี้',
                             style: TextStyle(fontSize: 14, color: Colors.black),
                           ),
+                         ],
+                        ),
+                          
                           Text(
                             '50 บาท',
                             style: TextStyle(fontSize: 14, color: Colors.black,fontWeight: FontWeight.bold),
