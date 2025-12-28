@@ -246,9 +246,6 @@ class AssignmentPage extends StatelessWidget {
     );
 
   }
-
-
-
  
 
   Widget _buildRoundedImage(String url, double size) {
