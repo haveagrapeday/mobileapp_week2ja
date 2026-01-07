@@ -1,3 +1,6 @@
+//import 'package:application_week2ja/about_page.dart';
+import 'package:application_week2ja/display_page.dart';
+import 'package:application_week2ja/welcome_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,14 +19,21 @@ class MyApp extends StatelessWidget {
         colorSchemeSeed: const Color(0xFF4F6FFF),
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: const MainContent(),
+
+      routes: {
+        '/' : (context) => const WelcomePage(),
+        '/about' : (context) => const WelcomePage(),
+        '/display' : (context) => 
+            const DisplayPage(name: ''),
+      },
+      initialRoute: '/',
+      home: const WelcomePage(),
     );
   }
 }
 
 class MainContent extends StatelessWidget {
   const MainContent({super.key});
-
 
   Widget _customCard({required Widget child}) {
     return Container(
@@ -51,12 +61,19 @@ class MainContent extends StatelessWidget {
   Widget _roundedImage(String url, double height, {bool isFullWidth = false}) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
-      child: Image.network(
-        url,
-        height: height,
-        width: isFullWidth ? double.infinity : height,
-        fit: BoxFit.cover,
-      ),
+      child: url.startsWith('http') 
+          ? Image.network(
+              url,
+              height: height,
+              width: isFullWidth ? double.infinity : height,
+              fit: BoxFit.cover,
+            )
+          : Image.asset(
+              url,
+              height: height,
+              width: isFullWidth ? double.infinity : height,
+              fit: BoxFit.cover,
+            ),
     );
   }
 
@@ -80,7 +97,6 @@ class MainContent extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-             
               _customCard(
                 child: Column(
                   children: [
@@ -124,7 +140,6 @@ class MainContent extends StatelessWidget {
               ),
               const SizedBox(height: 12),
 
-             
               _customCard(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -138,7 +153,6 @@ class MainContent extends StatelessWidget {
 
               const SizedBox(height: 60),
 
-             
               _customCard(
                 child: Row(
                   children: [
@@ -168,7 +182,6 @@ class MainContent extends StatelessWidget {
               ),
               const SizedBox(height: 20),
 
-            
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -237,7 +250,6 @@ class MainContent extends StatelessWidget {
     );
   }
 }
-
 
 class _SocialIcon extends StatelessWidget {
   final IconData icon;
